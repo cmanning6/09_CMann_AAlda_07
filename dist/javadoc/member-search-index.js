@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"chatroom","c":"ChatroomClient","l":"ChatroomClient()"},{"p":"chatroom","c":"ChatroomServer","l":"ChatroomServer()"},{"p":"chatroom","c":"ChatroomClient","l":"main(String[])","url":"main(java.lang.String[])"},{"p":"chatroom","c":"ChatroomServer","l":"main(String[])","url":"main(java.lang.String[])"}]
