@@ -71,7 +71,7 @@ class  SharedOuts {
     public void broadcast( Object obj) {
 	for ( String u : users ) {
             try {
-                System.out.println("Writing: " + obj);
+                System.out.println(obj);
                 uMap.get(u).writeObject(obj);
             } catch (IOException ex) {
 		ex.printStackTrace();
@@ -89,7 +89,7 @@ class  SharedOuts {
 	for ( String usr : users ) {
             try {
                 if (sendList.contains(usr)) {
-                    System.out.println("Writing: " + obj);
+                    System.out.println(obj);
                     uMap.get(usr).writeObject(obj);
                 }
             } catch (IOException ex) {
@@ -107,7 +107,7 @@ class  SharedOuts {
         //get users into a plain string with only commas
 	for ( String u : users ) {
             try {
-                System.out.println("Writing: " + evnt);
+                System.out.println(evnt);
                 uMap.get(u).writeObject(evnt);
                 uMap.get(u).writeObject(users.clone());
             } catch (IOException ex) {
@@ -139,7 +139,7 @@ class SAgent implements Runnable {
     try {
         userName = (String) in.readObject();
         sout.add( out, userName);
-        sout.updateUsers("JOIN");
+        sout.updateUsers("JOIN " + userName);
         sout.broadcast("WRITE " + userName + " has connected!");
         while (true ) {
 
@@ -150,7 +150,7 @@ class SAgent implements Runnable {
     catch ( Exception e) {}
     finally {
         sout.remove(userName);
-        sout.updateUsers( "DISCONNECT");
+        sout.updateUsers( "DISCONNECT " + userName);
         sout.broadcast("WRITE " + userName + " has disconnected.");
     }
   }
